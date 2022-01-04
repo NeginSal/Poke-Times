@@ -1,3 +1,5 @@
+import React from "react";
+
 const Navbar = () => {
     return (
         <nav className="nav-wrapper purple lighten-2">

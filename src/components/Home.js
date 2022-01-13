@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Home = () => {
-    return (
-        <div className="container">
-            <h4 className="center">
-                Home
-            </h4>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia dolore, animi alias delectus, beatae sed aliquam enim voluptatem totam exercitationem dolorum. Alias laudantium accusantium harum quibusdam nesciunt exercitationem hic laborum!</p>
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data.slice(0, 10));
+      });
+  }, []);
+  return (
+    <div className="container">
+    <h4 className="center">Home</h4>
+      {posts.map((post) => (
+        <div class="post card " key={post.id}>
+          <div className="card-content">
+            <span className="card-title">{post.title}</span>
+            <p>{post.body}</p>
+          </div>
         </div>
-     );
-}
+      ))}
+    </div>
+  );
+};
 
 export default Home;

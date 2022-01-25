@@ -9,13 +9,15 @@ import Post from "./components/Post";
 const App = () => {
   return (
     <BrowserRouter>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="about" element={<About/> }></Route>
-        <Route path="contact" element={<Contact/>}></Route>
-        <Route path="/posts/:id" element={<Post/>}></Route>
-      </Routes>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="about" element={<About />}></Route>
+          <Route path="contact" element={<Contact />}></Route>
+          <Route path="/posts/:id" element={<Post />}></Route>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

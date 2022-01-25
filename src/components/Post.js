@@ -7,21 +7,21 @@ const Post = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${id}`
-      );
+      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
       const newData = await response.json();
       setPost(newData);
     };
     fetchData();
   }, [id]);
   return post ? (
-    <div>
-      <p>{post.title}</p>
-      <p>{post.body}</p>
+    <div className="post">
+      <h4 className="center">{post.title}</h4>
+      <p className="center">{post.body}</p>
     </div>
-  ) : (
-    "Loading post"
+  ) : (<div className="center">
+    "Loading post ..."
+  </div>
+
   );
 };
 

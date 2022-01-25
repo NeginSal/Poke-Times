@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Pokeball from "../pokeball.png";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
@@ -15,9 +16,10 @@ const Home = () => {
       <h4 className="center">Home</h4>
       {posts.map((post) => (
         <div className="post card" key={post.id}>
+        <img src={Pokeball} alt="A pokeball"/>
           <div className="card-content">
             <Link to={`/posts/${post.id}`}>
-              <span className="card-title">{post.title}</span>{" "}
+              <span className="card-title red-text">{post.title}</span>{" "}
             </Link>
             <p>{post.body}</p>
           </div>

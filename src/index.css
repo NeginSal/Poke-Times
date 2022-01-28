@@ -5,15 +5,6 @@ body {
   background: #eee;
 }
 
-nav a.active{
-  border-bottom: 5px solid #333;
-  transition: all ease 0.5s;
-}
-
-.container{
-  margin-top: 20px;
-}
-
 .home .post img{
   position: absolute;
   top: 20px;

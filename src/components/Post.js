@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useSelector } from 'react-redux'
 
 const Post = () => {
   const { id } = useParams();
-  const [post, setPost] = useState(null);
+  const post = useSelector(state =>
+    state.posts.find(post => post.id === id)
+  )
+  // const { id } = useParams();
+  // const [post, setPost] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-      const newData = await response.json();
-      setPost(newData);
-    };
-    fetchData();
-  }, [id]);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+  //     const newData = await response.json();
+  //     setPost(newData);
+  //   };
+  //   fetchData();
+  // }, [id]);
   return post ? (
     <div className="post">
       <h4 className="center">{post.title}</h4>
@@ -24,5 +29,6 @@ const Post = () => {
 
   );
 };
+
 
 export default Post;

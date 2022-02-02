@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import Pokeball from "../pokeball.png";
 
-
 const Home = () => {
-const posts = useSelector(state => state.posts)
+  const posts = useSelector((state) => state.posts);
+
   // const [posts, setPosts] = useState([]);
   // useEffect(() => {
   //   fetch("https://jsonplaceholder.typicode.com/posts")

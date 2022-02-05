@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams,useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
-import { connect } from 'react-redux'
+import { deletePost } from "../actions/postActions";
 
 const Post = () => {
   const { id } = useParams();
@@ -13,7 +13,7 @@ const Post = () => {
   );
 
   const handleDelete=(id)=>{
-    dispatch({type:'DELETE_POST',id:id});
+    dispatch(deletePost(id));
     console.log(id)
     navigate('/');
   }
@@ -42,11 +42,7 @@ const Post = () => {
 
   );
 };
-const mapDispatchToProps = (dispatch) => {
-  return {
-    deletePost: (id) => dispatch({type: 'DELETE_POST', id: id})
-  }
-}
 
 
-export default connect(mapDispatchToProps)(Post)
+
+export default Post

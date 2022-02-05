@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Poke-Times/static/css/main.bb7252c4.css",
+    "main.js": "/Poke-Times/static/js/main.c86d28ec.js",
+    "static/media/pokeball.png": "/Poke-Times/static/media/pokeball.05e5662d79b3c6b0a2a7.png",
+    "index.html": "/Poke-Times/index.html",
+    "main.bb7252c4.css.map": "/Poke-Times/static/css/main.bb7252c4.css.map",
+    "main.c86d28ec.js.map": "/Poke-Times/static/js/main.c86d28ec.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bb7252c4.css",
+    "static/js/main.c86d28ec.js"
+  ]
+}

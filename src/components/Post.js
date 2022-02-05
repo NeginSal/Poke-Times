@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate  } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import React from "react";
+import { useParams,useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { connect } from 'react-redux'
 
 const Post = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   const post = useSelector(state =>
     state.posts.find(post => post.id === id)
-  )
-  const deletePost=(id)=>{
-    dispatch({type:'DELETE_POST',id:id});
+  );
 
+  const handleDelete=(id)=>{
+    dispatch({type:'DELETE_POST',id:id});
+    console.log(id)
+    navigate('/');
   }
-  // navigate("/");
   // const { id } = useParams();
   // const [post, setPost] = useState(null);
 
@@ -30,8 +33,8 @@ const Post = () => {
       <h4 className="center">{post.title}</h4>
       <p className="center">{post.body}</p>
       <div className="center">
-              <button className="btn grey" onClick={deletePost}>Delete Post</button>
-            </div>
+         <button className="btn grey" onClick={() => handleDelete(post.id)}>Delete Post</button>
+      </div>
     </div>
   ) : (<div className="center">
     "Loading post ..."
@@ -39,5 +42,11 @@ const Post = () => {
 
   );
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deletePost: (id) => dispatch({type: 'DELETE_POST', id: id})
+  }
+}
 
-export default Post;
+
+export default connect(mapDispatchToProps)(Post)

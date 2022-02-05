@@ -17,8 +17,15 @@ const initState = {
     },
   ],
 };
+
 const rootReducer = (state = initState, action) => {
   if (action.type === "DELETE_POST") {
+    // return {
+    //   ...state,
+    //  posts: state.posts.filter(
+    //     (post) => action.id !== post.id
+    //   ),
+    // };
     let newPosts = state.posts.filter((post) => {
       return action.id !== post.id;
     });
@@ -26,11 +33,9 @@ const rootReducer = (state = initState, action) => {
       ...state,
       posts: newPosts,
     };
-    // return {
-    //   ...state,
-    //   posts: state.posts.filter(post => post.id !== action.id)
-    // }
   }
   return state;
-};
+ };
+
+
 export default rootReducer;
